@@ -1,0 +1,623 @@
+ $base_url='http://172.16.0.60/WebServices/';
+$activation=md5($email.time());
+$time = time();
+email format to HTML
+        $mail->Subject = 'Activate Your Account';
+        $mail->Body    = 'Hi, <br/> <br/> We need to make sure you are human. Please verify your email and get started using your Website account. <br/> <br/> <a href="'.$base_url.'activation/'.$activation.'">'.$base_url.'activation/'.$activation.$time.'</a>';
+
+$u_time = $this->input->get('time'); // fetching time variable from URL
+$cur_time = time(); //fetching current time to check with GET variable's time
+if ($cur_time - $u_time < 10800) 
+{
+ // link is not expired
+}
+else
+{
+ // link has been expired
+}        
+
+ use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+// define('PATH', dirname(__FILE__));
+require 'http://www.trraks.com/vendor/phpmailer/phpmailer/src/Exception.php';
+require 'http://www.trraks.com/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'http://www.trraks.com/vendor/phpmailer/phpmailer/src/SMTP.php';
+      require 'vendor/autoload.php';
+
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Trraks.com</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script defer src="../static/js/fontawesome-all.min.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="../static/img/trraks_icon.ico" />
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/bootstrap-cosmo.min.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+        
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <!-- top social bar -->
+<div class="container-fluid bg-light">
+    <div class="container">
+    <div class="row justify-content-end">
+        <div class="col text-right">
+           <a href="https://www.facebook.com/trraks/" target="_blank"><i class="fab fa-facebook fa-lg"></i></a> 
+           <a href="https://twitter.com/trraksedu" target="_blank"><i class="fab fa-twitter-square fa-lg"></i></a> 
+           <!-- <a href=""><i class="fab fa-linkedin fa-lg"></i></a>  -->
+           <a href="https://www.instagram.com/trraksedu/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a> 
+        </div>
+    </div>
+</div>
+</div>
+        <!-- end of top social bar -->
+<!-- top bar -->
+
+<div class="container" id="top">
+    <div class="row align-items-center">
+        <div class="col-md-3">
+           <a href="index.php"> <img src="../static/img/trraks-logo.png" alt="Trraks.com" class="nav-logo"></a>
+        </div>
+        <div class="col-md-9">
+            <p class="h4 text-primary">Webinar session starts in : <strong><span class="text-success num-font " id="webinar-date-countdown">
+              <!-- Count Down timer is in custome.js -->
+            </span></strong><button class="btn btn-secondary my-2 my-sm-0 btn-danger ml-2 animated infinite pulse" type="submit">Apply <i class="far fa-hand-point-left"></i></button></p> 
+        </div>
+    </div>
+</div>
+ 
+<div class="card">
+  <div class="card-body" style="background-color: #ffdaa42b">
+    <div class="media row">
+      <div class="col-md-3 col-sm-4">
+        <img class="img-thumbnail mt-3" id="UNIVERSITY_IMG" src="' + generated_result[i].UNIVERSITY_IMG + '" alt="' + generated_result[i].IMG_NAME + '">
+      </div> 
+    <div class="col-md-5 col-sm-8">
+      <p class="h3">
+        <a href="university-info.php?worldrank=' + generated_result[i].UNIVERSITY_RANK + '&country=' + Country + '"target="_blank" style="color:#18183b" >' + generated_result[i].UNIVERSITY_NAME + '</a>
+      </p>  
+      <p class="h6 font-weight-light">
+        <a href="' + generated_result[i].WEBSITE + '" target="_blank">' + generated_result[i].WEBSITE + '</a>
+      </p>
+      <p>
+        <small>Nashik , Maharastra</small>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class=" col-md-12 h4">World Rank 
+          <span class="badge badge-secondary " id="Rank">' + generated_result[i].UNIVERSITY_RANK + '</span>
+        </div>
+        <div class="form-control col-md-6 border border-dark"> GRE <span class="ml-2">9</span>
+        </div>
+        <div class="form-control col-md-6 border border-dark">' + VerbExam + '<span class="ml-2">' + generated_result[i].IELTS_CUTOFF + '</span>
+<!--         <div class="form-control col-md-6 border border-dark">  
+          <input id="AdmissionFormModal" class="btn btn-primary" type="button" value="Apply for university">
+        </div> -->
+         
+        </div> 
+        <div class="md-12 mt-2">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Proceed with admission</button>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- End of top bar -->
+        <!-- Add your site or application content here -->
+        <div class="container ">
+            <div class="row m-2 ">
+            <div class="col-md-2" style="margin-top: 20%;">
+                    <div id="list-example " class="list-group position-fixed text-center" style="width: 150px;">
+                      <a class="list-group-item list-group-item-action" href="#top">Item 1</a>
+                      <a class="list-group-item list-group-item-action" href="#list-item-2">Item2</a>
+                      <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+                      <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+                    </div>  
+           <!--          <div class="img">
+                        <img src="img/plusprep.png" alt="not showin">
+                    </div>     -->          
+            </div>
+            <div class="col-md-10 text-justify" >
+                            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+                              <h4 id="list-item-1">Item 1</h4>
+                              <p>In computing
+See also: Newline
+In word processing and desktop publishing, a hard return or paragraph break indicates a new paragraph, to be distinguished from the soft return at the end of a line internal to a paragraph. This distinction allows word wrap to automatically re-flow text as it is edited, without losing paragraph breaks. The software may apply vertical whitespace or indenting at paragraph breaks, depending on the selected style.
+
+How such documents are actually stored depends on the file format. For example, HTML uses the <p> tag as a paragraph container. In plaintext files, there are two common formats. Pre-formatted text will have a newline at the end of every physical line, and two newlines at the end of a paragraph, creating a blank line. An alternative is to only put newlines at the end of each paragraph, and leave word wrapping up to the application that displays or processes the text.
+
+A line break that is inserted manually, and preserved when re-flowing, may still be distinct from a paragraph break, although this is typically not done in prose. HTML's <br /> tag produces a line break without ending the paragraph; the W3C recommends using it only to separate lines of verse (where each "paragraph" is a stanza), or in a street address.[5]
+
+Numbering
+See also: Newline
+Paragraphs are commonly numbered using the decimal system, where (in books) the integral part of the decimal represents the number of the chapter and the fractional parts are arranged in each chapter in order of magnitude. Thus in Whittaker and Watson's 1921 A Course of Modern Analysis, chapter 9 is devoted to Fourier Series; within that chapter §9.6 introduces Riemann's theory, the following section §9.61 treats an associated function, following §9.62 some properties of that function, following §9.621 a related lemma, while §9.63 introduces Riemann's main theorem, and so on. Whittaker and Watson attribute this system of numbering to Giuseppe Peano on their "Contents" page, although this attribution does not seem to be widely credited elsewhere.[6]
+
+Section breaks
+Main article: Section (typography)
+Many published books use a device to separate certain paragraphs further when there is a change of scene or time. This extra space, especially when co-occurring at a page or section break, may contain an asterisk, three asterisks, a special stylistic dingbat, or a special symbol known as an asterism.
+
+Purpose and style advice
+A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[7]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.</p>
+                              <h4 id="list-item-2">Item 2</h4>
+                              <p>In computing
+See also: Newline
+In word processing and desktop publishing, a hard return or paragraph break indicates a new paragraph, to be distinguished from the soft return at the end of a line internal to a paragraph. This distinction allows word wrap to automatically re-flow text as it is edited, without losing paragraph breaks. The software may apply vertical whitespace or indenting at paragraph breaks, depending on the selected style.
+
+How such documents are actually stored depends on the file format. For example, HTML uses the <p> tag as a paragraph container. In plaintext files, there are two common formats. Pre-formatted text will have a newline at the end of every physical line, and two newlines at the end of a paragraph, creating a blank line. An alternative is to only put newlines at the end of each paragraph, and leave word wrapping up to the application that displays or processes the text.
+
+A line break that is inserted manually, and preserved when re-flowing, may still be distinct from a paragraph break, although this is typically not done in prose. HTML's <br /> tag produces a line break without ending the paragraph; the W3C recommends using it only to separate lines of verse (where each "paragraph" is a stanza), or in a street address.[5]
+
+Numbering
+See also: Newline
+Paragraphs are commonly numbered using the decimal system, where (in books) the integral part of the decimal represents the number of the chapter and the fractional parts are arranged in each chapter in order of magnitude. Thus in Whittaker and Watson's 1921 A Course of Modern Analysis, chapter 9 is devoted to Fourier Series; within that chapter §9.6 introduces Riemann's theory, the following section §9.61 treats an associated function, following §9.62 some properties of that function, following §9.621 a related lemma, while §9.63 introduces Riemann's main theorem, and so on. Whittaker and Watson attribute this system of numbering to Giuseppe Peano on their "Contents" page, although this attribution does not seem to be widely credited elsewhere.[6]
+
+Section breaks
+Main article: Section (typography)
+Many published books use a device to separate certain paragraphs further when there is a change of scene or time. This extra space, especially when co-occurring at a page or section break, may contain an asterisk, three asterisks, a special stylistic dingbat, or a special symbol known as an asterism.
+
+Purpose and style advice
+A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[7]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.</p>
+                              <h4 id="list-item-3">Item 3</h4>
+                              <p>In computing
+See also: Newline
+In word processing and desktop publishing, a hard return or paragraph break indicates a new paragraph, to be distinguished from the soft return at the end of a line internal to a paragraph. This distinction allows word wrap to automatically re-flow text as it is edited, without losing paragraph breaks. The software may apply vertical whitespace or indenting at paragraph breaks, depending on the selected style.
+
+How such documents are actually stored depends on the file format. For example, HTML uses the <p> tag as a paragraph container. In plaintext files, there are two common formats. Pre-formatted text will have a newline at the end of every physical line, and two newlines at the end of a paragraph, creating a blank line. An alternative is to only put newlines at the end of each paragraph, and leave word wrapping up to the application that displays or processes the text.
+
+A line break that is inserted manually, and preserved when re-flowing, may still be distinct from a paragraph break, although this is typically not done in prose. HTML's <br /> tag produces a line break without ending the paragraph; the W3C recommends using it only to separate lines of verse (where each "paragraph" is a stanza), or in a street address.[5]
+
+Numbering
+See also: Newline
+Paragraphs are commonly numbered using the decimal system, where (in books) the integral part of the decimal represents the number of the chapter and the fractional parts are arranged in each chapter in order of magnitude. Thus in Whittaker and Watson's 1921 A Course of Modern Analysis, chapter 9 is devoted to Fourier Series; within that chapter §9.6 introduces Riemann's theory, the following section §9.61 treats an associated function, following §9.62 some properties of that function, following §9.621 a related lemma, while §9.63 introduces Riemann's main theorem, and so on. Whittaker and Watson attribute this system of numbering to Giuseppe Peano on their "Contents" page, although this attribution does not seem to be widely credited elsewhere.[6]
+
+Section breaks
+Main article: Section (typography)
+Many published books use a device to separate certain paragraphs further when there is a change of scene or time. This extra space, especially when co-occurring at a page or section break, may contain an asterisk, three asterisks, a special stylistic dingbat, or a special symbol known as an asterism.
+
+Purpose and style advice
+A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[7]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.</p>
+                              <h4 id="list-item-4">Item 4</h4>
+                              <p>In computing
+See also: Newline
+In word processing and desktop publishing, a hard return or paragraph break indicates a new paragraph, to be distinguished from the soft return at the end of a line internal to a paragraph. This distinction allows word wrap to automatically re-flow text as it is edited, without losing paragraph breaks. The software may apply vertical whitespace or indenting at paragraph breaks, depending on the selected style.
+
+How such documents are actually stored depends on the file format. For example, HTML uses the <p> tag as a paragraph container. In plaintext files, there are two common formats. Pre-formatted text will have a newline at the end of every physical line, and two newlines at the end of a paragraph, creating a blank line. An alternative is to only put newlines at the end of each paragraph, and leave word wrapping up to the application that displays or processes the text.
+
+A line break that is inserted manually, and preserved when re-flowing, may still be distinct from a paragraph break, although this is typically not done in prose. HTML's <br /> tag produces a line break without ending the paragraph; the W3C recommends using it only to separate lines of verse (where each "paragraph" is a stanza), or in a street address.[5]
+
+Numbering
+See also: Newline
+Paragraphs are commonly numbered using the decimal system, where (in books) the integral part of the decimal represents the number of the chapter and the fractional parts are arranged in each chapter in order of magnitude. Thus in Whittaker and Watson's 1921 A Course of Modern Analysis, chapter 9 is devoted to Fourier Series; within that chapter §9.6 introduces Riemann's theory, the following section §9.61 treats an associated function, following §9.62 some properties of that function, following §9.621 a related lemma, while §9.63 introduces Riemann's main theorem, and so on. Whittaker and Watson attribute this system of numbering to Giuseppe Peano on their "Contents" page, although this attribution does not seem to be widely credited elsewhere.[6]
+
+Section breaks
+Main article: Section (typography)
+Many published books use a device to separate certain paragraphs further when there is a change of scene or time. This extra space, especially when co-occurring at a page or section break, may contain an asterisk, three asterisks, a special stylistic dingbat, or a special symbol known as an asterism.
+
+Purpose and style advice
+A common English usage misconception is that a paragraph has three to five sentences; single-word paragraphs can be seen in some professional writing, and journalists often use single-sentence paragraphs.[7]
+
+The crafting of clear, coherent paragraphs is the subject of considerable stylistic debate. Forms generally vary among types of writing. For example, newspapers, scientific journals, and fictional essays have somewhat different conventions for the placement of paragraph breaks.
+
+English students are sometimes taught that a paragraph should have a topic sentence or "main idea", preferably first, and multiple "supporting" or "detail" sentences which explain or supply evidence. One technique of this type, intended for essay writing, is known as the Schaffer paragraph. For example, the following excerpt from Dr. Samuel Johnson's Lives of the English Poets, the first sentence is the main idea: that Joseph Addison is a skilled "describer of life and manners". The succeeding sentences are details that support and explain the main idea in a specific way.
+
+As a describer of life and manners, he must be allowed to stand perhaps the first of the first rank. His humour, which, as Steele observes, is peculiar to himself, is so happily diffused as to give the grace of novelty to domestic scenes and daily occurrences. He never "o'ersteps the modesty of nature," nor raises merriment or wonder by the violation of truth. His figures neither divert by distortion nor amaze by aggravation. He copies life with so much fidelity that he can be hardly said to invent; yet his exhibitions have an air so much original, that it is difficult to suppose them not merely the product of imagination.</p>
+                            </div>    
+            </div>                
+            </div>
+
+
+        </div>
+
+        <div class="container">
+        <div class="row m-4 fixed-bottom">
+            <div class="button col-md-2" style="margin-left: 13%;">
+               <a href="#top">  <input class="btn btn-primary" type="button" value="Top"></a>
+            </div>
+        </div>   
+           
+        </div>
+
+        <div class="modal fade bg-one" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-color">
+          <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel"><b>Admission Form</b></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            
+            <input type="text" class="form-control drop" id="recipient-name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            
+            <input type="email" class="form-control drop" id="recipient-name" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            
+            <input type="tel" class="form-control drop" id="recipient-name" placeholder="Enter your mobile no.">
+          </div>
+           <div class="form-group">
+            <select class="custom-select my-1 mr-sm-2 drop"  id="stud_city" name="stud_city" >
+          <option value="">Current location</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#000000"><i>-Top Metropolitan Cities-</i></font></option>
+          <option>Ahmedabad</option> 
+          <option>Bengaluru/Bangalore</option>
+          <option>Chandigarh</option>
+          <option>Chennai</option>
+          <option>Delhi</option>
+          <option>Gurgaon</option>
+          <option>Hyderabad/Secunderabad</option>
+          <option>Kolkatta</option>
+          <option>Mumbai</option>
+          <option>Noida</option>
+          <option>Pune</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Andhra Pradesh-</i></font></option>
+          <option>Anantapur</option>
+          <option>Guntakal</option>
+          <option>Guntur</option>
+          <option>Hyderabad/Secunderabad</option>
+          <option>kakinada</option>
+          <option>kurnool</option>
+          <option>Nellore</option>
+          <option>Nizamabad</option>
+          <option>Rajahmundry</option>
+          <option>Tirupati</option>
+          <option>Vijayawada</option>
+          <option>Visakhapatnam</option>
+          <option>Warangal</option>
+          <option>Andra Pradesh-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Arunachal Pradesh-</i></font></option>
+          <option>Itanagar</option>
+          <option>Arunachal Pradesh-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Assam-</i></font></option>
+          <option>Guwahati</option>
+          <option>Silchar</option>
+          <option>Assam-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Bihar-</i></font></option>
+          <option>Bhagalpur</option>
+          <option>Patna</option>
+          <option>Bihar-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Chhattisgarh-</i></font></option>
+          <option>Bhillai</option>
+          <option>Bilaspur</option>
+          <option>Raipur</option>
+          <option>Chhattisgarh-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Goa-</i></font></option>
+          <option>Panjim/Panaji</option>
+          <option>Vasco Da Gama</option>
+          <option>Goa-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Gujarat-</i></font></option>
+          <option>Ahmedabad</option>
+          <option>Anand</option>
+          <option>Ankleshwar</option>
+          <option>Bharuch</option>
+          <option>Bhavnagar</option>
+          <option>Bhuj</option>
+          <option>Gandhinagar</option>
+          <option>Gir</option>
+          <option>Jamnagar</option>
+          <option>Kandla</option>
+          <option>Porbandar</option>
+          <option>Rajkot</option>
+          <option>Surat</option>
+          <option>Vadodara/Baroda</option>
+          <option>Valsad</option>
+          <option>Vapi</option>
+          <option>Gujarat-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Haryana-</i></font></option>
+          <option>Ambala</option>
+          <option>Chandigarh</option>
+          <option>Faridabad</option>
+          <option>Gurgaon</option>
+          <option>Hisar</option>
+          <option>Karnal</option>
+          <option>Kurukshetra</option>
+          <option>Panipat</option>
+          <option>Rohtak</option>
+          <option>Haryana-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Himachal Pradesh-</i></font></option>
+          <option>Dalhousie</option>
+          <option>Dharmasala</option>
+          <option>Kulu/Manali</option>
+          <option>Shimla</option>
+          <option>Himachal Pradesh-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Jammu and Kashmir-</i></font></option>
+          <option>Jammu</option>
+          <option>Srinagar</option>
+          <option>Jammu and Kashmir-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Jharkhand-</i></font></option>
+          <option>Bokaro</option>
+          <option>Dhanbad</option>
+          <option>Jamshedpur</option>
+          <option>Ranchi</option>
+          <option>Jharkhand-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Karnataka-</i></font></option>
+          <option>Bengaluru/Bangalore</option>
+          <option>Belgaum</option>
+          <option>Bellary</option>
+          <option>Bidar</option>
+          <option>Dharwad</option>
+          <option>Gulbarga</option>
+          <option>Hubli</option>
+          <option>Kolar</option>
+          <option>Mangalore</option>
+          <option>Mysoru/Mysore</option>
+          <option>Karnataka-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Kerala-</i></font></option>
+          <option>Calicut</option>
+          <option>Cochin</option>
+          <option>Ernakulam</option>
+          <option>Kannur</option>
+          <option>Kochi</option>
+          <option>Kollam</option>
+          <option>Kottayam</option>
+          <option>Kozhikode</option>
+          <option>Palakkad</option>
+          <option>Palghat</option>
+          <option>Thrissur</option>
+          <option>Trivandrum</option>
+          <option>Kerela-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Madhya Pradesh-</i></font></option>
+          <option>Bhopal</option>
+          <option>Gwalior</option>
+          <option>Indore</option>
+          <option>Jabalpur</option>
+          <option>Ujjain</option>
+          <option>Madhya Pradesh-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Maharashtra-</i></font></option>
+          <option>Ahmednagar</option>
+          <option>Aurangabad</option>
+          <option>Jalgaon</option>
+          <option>Kolhapur</option>
+          <option>Mumbai</option>
+          <option>Mumbai Suburbs</option>
+          <option>Nagpur</option>
+          <option>Nasik</option>
+          <option>Navi Mumbai</option>
+          <option>Pune</option>
+          <option>Solapur</option>
+          <option>Maharashtra-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Manipur-</i></font></option>
+          <option>Imphal</option>
+          <option>Manipur-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Meghalaya-</i></font></option>
+          <option>Shillong</option>
+          <option>Meghalaya-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Mizoram-</i></font></option>
+          <option>Aizawal</option>
+          <option>Mizoram-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Nagaland-</i></font></option>
+          <option>Dimapur</option>
+          <option>Nagaland-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Orissa-</i></font></option>
+          <option>Bhubaneshwar</option>
+          <option>Cuttak</option>
+          <option>Paradeep</option>
+          <option>Puri</option>
+          <option>Rourkela</option>
+          <option>Orissa-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Punjab-</i></font></option>
+          <option>Amritsar</option>
+          <option>Bathinda</option>
+          <option>Chandigarh</option>
+          <option>Jalandhar</option>
+          <option>Ludhiana</option>
+          <option>Mohali</option>
+          <option>Pathankot</option>
+          <option>Patiala</option>
+          <option>Punjab-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Rajasthan-</i></font></option>
+          <option>Ajmer</option>
+          <option>Jaipur</option>
+          <option>Jaisalmer</option>
+          <option>Jodhpur</option>
+          <option>Kota</option>
+          <option>Udaipur</option>
+          <option>Rajasthan-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Sikkim-</i></font></option>
+          <option>Gangtok</option>
+          <option>Sikkim-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Tamil Nadu-</i></font></option>
+          <option>Chennai</option>
+          <option>Coimbatore</option>
+          <option>Cuddalore</option>
+          <option>Erode</option>
+          <option>Hosur</option>
+          <option>Madurai</option>
+          <option>Nagerkoil</option>
+          <option>Ooty</option>
+          <option>Salem</option>
+          <option>Thanjavur</option>
+          <option>Tirunalveli</option>
+          <option>Trichy</option>
+          <option>Tuticorin</option>
+          <option>Vellore</option>
+          <option>Tamil Nadu-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Tripura-</i></font></option>
+          <option>Agartala</option>
+          <option>Tripura-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Union Territories-</i></font></option>
+          <option>Chandigarh</option>
+          <option>Dadra & Nagar Haveli-Silvassa</option>
+          <option>Daman & Diu</option>
+          <option>Delhi</option>
+          <option>Pondichery</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Uttar Pradesh-</i></font></option>
+          <option>Agra</option>
+          <option>Aligarh</option>
+          <option>Allahabad</option>
+          <option>Bareilly</option>
+          <option>Faizabad</option>
+          <option>Ghaziabad</option>
+          <option>Gorakhpur</option>
+          <option>Kanpur</option>
+          <option>Lucknow</option>
+          <option>Mathura</option>
+          <option>Meerut</option>
+          <option>Moradabad</option>
+          <option>Noida</option>
+          <option>Varanasi/Banaras</option>
+          <option>Uttar Pradesh-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Uttaranchal-</i></font></option>
+          <option>Dehradun</option>
+          <option>Roorkee</option>
+          <option>Uttaranchal-Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-West Bengal-</i></font></option>
+          <option>Asansol</option>
+          <option>Durgapur</option>
+          <option>Haldia</option>
+          <option>Kharagpur</option>
+          <option>Kolkatta</option>
+          <option>Siliguri</option>
+          <option>West Bengal - Other</option>
+          <option disabled="disabled" style="background-color:#3E3E3E"><font color="#FFFFFF"><i>-Other-</i></font></option>
+          <option>Other</option>
+        
+                </select>
+           </div>
+            <div class="form-group">
+                <select class="custom-select my-1 mr-sm-2 drop" style="margin-bottom:20px" id="inlineFormCustomSelectPref" name="country">
+                <option value="" disabled selected> Select your country</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <!--
+                <option value="UK">UK</option>
+                <option value="Germany">Germany</option>
+                <option value="Australia">Australia</option>
+                <option value="New Zealand">New Zealand</option>
+                   -->
+                    </select>
+
+      </div>            
+           <div class="form-group"> 
+          <select class="custom-select my-1 mr-sm-2 drop" id="inlineFormCustomSelectPref" name="stream">
+            <option value="" disabled selected> Select your desired stream</option>
+            <option value="MS">MS</option>
+            <option value="MBA">MBA</option>
+            
+                </select>
+            </div>       
+         <!--
+            
+         
+           Desired Stream.
+                         <div class="form-check form-check-inline">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> MS
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> MBA
+                              </label>
+                            </div>
+            -->                
+           <div class="form-group">
+            
+            <input type="tel" class="form-control drop-space" id="recipient-name" placeholder="Enter loan amount">
+          </div> 
+                   
+      
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" style="margin-right:185px" >Apply</button>
+        </div>
+        </form>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+result generation output code is here
+
+
+<div class="card">
+  <div class="card-body" style="background-color: #ffdaa42b">
+    <div class="media row">
+            <div class="col-md-3 col-sm-4">
+            <img class="img-thumbnail mt-3" id="UNIVERSITY_IMG" src="' + generated_result[i].UNIVERSITY_IMG + '" alt="' + generated_result[i].IMG_NAME + '">
+          </div> 
+          <div class="col-md-5 col-sm-8">
+            <p class="h3">
+            <a  style="color:#18183b" target="_blank">' + generated_result[i].UNIVERSITY_NAME + '</a></p>  
+            <p class="h6 font-weight-light"><a href="' + generated_result[i].WEBSITE + '" target="_blank">' + generated_result[i].WEBSITE + '</a></p>
+            <p><small>Nashik , Maharastra</small></p>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="form-control col-md-6 border border-dark"> GRE <span class="ml-2">9</span>
+              </div>
+              <div class="form-control col-md-6 border border-dark">' + VerbExam + '<span class="ml-2">' + generated_result[i].IELTS_CUTOFF + '</span>
+              </div>        
+              <div class="md-12 mt-2">       
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+
+
+
+$(document).ready(function(){
+var profile = '<?= addslashes($_GET['profile']); ?>';
+var Email = '<?= addslashes($_SESSION['Email']); ?>';
+var data_string = 'profile=' + profile + '&Email='+Email;
+                     $.ajax({  
+                          type: 'POST',
+                          url: 'resultgenerating.php',
+                          data: data_string,
+                          success:(function(data) 
+                          {
+                              var generated_result = JSON.parse(data);
+                              // console.log();
+                              var length = generated_result.length;
+                                 alert(data);
+                             for(var i=0; i < length; i++)
+                              {
+                                 var x='<div class="card"><div class="card-body" style="background-color: #ffdaa42b"><div class="media row"><div class="col-md-3 col-sm-4"><img class="img-thumbnail mt-3" id="UNIVERSITY_IMG" src="' + generated_result[i].UNIVERSITY_IMG + '" alt="' + generated_result[i].IMG_NAME + '"></div> <div class="col-md-5 col-sm-8"><p class="h3"><a style="color:#18183b" target="_blank">' + generated_result[i].UNIVERSITY_NAME + '</a></p>  <p class="h6 font-weight-light"><a href="' + generated_result[i].WEBSITE + '" target="_blank">' + generated_result[i].WEBSITE + '</a></p><p><small></small></p></div><div class="col-md-4"><div class="row">        <div class="md-12 mt-2">       </div></div></div></div></div>';
+                                   $("#shortlisted-university").append(x);
+
+                              }
+                          })
+                   });
+});
